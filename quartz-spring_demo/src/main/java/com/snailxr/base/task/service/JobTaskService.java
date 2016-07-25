@@ -81,9 +81,11 @@ public class JobTaskService {
 		if ("stop".equals(cmd)) {
 			deleteJob(job);
 			job.setJobStatus(ScheduleJob.STATUS_NOT_RUNNING);
+			//updateJobCron(job);
 		} else if ("start".equals(cmd)) {
 			job.setJobStatus(ScheduleJob.STATUS_RUNNING);
 			addJob(job);
+			//updateJobCron(job);
 		}
 		scheduleJobMapper.updateByPrimaryKeySelective(job);
 	}

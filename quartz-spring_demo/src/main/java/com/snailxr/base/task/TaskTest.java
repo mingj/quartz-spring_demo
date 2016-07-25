@@ -1,12 +1,11 @@
 package com.snailxr.base.task;
 
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
 import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Map;
-import java.util.Set;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
 @Component
 public class TaskTest {

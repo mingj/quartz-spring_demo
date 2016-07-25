@@ -25,7 +25,12 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 
 
 	<bean id="schedulerFactoryBean"
-		class="org.springframework.scheduling.quartz.SchedulerFactoryBean" />
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean" >
+		<property name="dataSource" ref="dataSource"/>
+		<property name="applicationContextSchedulerContextKey"  value="applicationContext" />
+		<property name="configLocation" value="classpath:quartz.properties"/>
+	</bean>
+
 
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:config.properties" />
@@ -81,13 +86,13 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:com/snailxr/base/**/*.xml</value>
+				<value>classpath*:mapper/*.xml</value>
 			</list>
 		</property>
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.snailxr.base.**.dao" />
+		<property name="basePackage" value="com.snailxr.base.task.domain,com.snailxr.base.task.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 

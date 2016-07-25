@@ -1,5 +1,6 @@
 package com.snailxr.base.task.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * 
@@ -7,7 +8,7 @@ import java.util.Date;
 * @author snailxr
 * @date 2014年6月6日 下午10:49:43
  */
-public class ScheduleJob {
+public class ScheduleJob implements Serializable{
 
 	public static final String STATUS_RUNNING = "1";
 	public static final String STATUS_NOT_RUNNING = "0";
